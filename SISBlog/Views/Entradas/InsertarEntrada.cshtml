@@ -1,0 +1,75 @@
+﻿@model SISBlog.Models.Entradas
+
+@{
+    ViewBag.Title = "Nueva entrada";
+}
+
+<h2>Nueva entrada</h2>
+
+
+@using (Html.BeginForm("Insert", "Entradas", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Entradas</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Fecha_publicacion, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Fecha_publicacion,
+               new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @Value = DateTime.Now.ToLongDateString() } })
+                @*@Html.ValidationMessageFor(model => model.Fecha_publicacion, "", new { @class = "text-danger" })*@
+            </div>
+
+            @Html.LabelFor(model => model.Hora_publicacion, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Hora_publicacion,
+               new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @Value = DateTime.Now.ToShortTimeString() } })
+                @*@Html.ValidationMessageFor(model => model.Hora_publicacion, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Autor", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nombre_persona,
+               new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @Value = "Pablo Andrés Erazo Muñoz", @name= "txtPersona" } })
+                @*@Html.ValidationMessageFor(model => model.Nombre_persona, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+
+
+        <h3>Título</h3>
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.Titulo_entrada, new { htmlAttributes = new { @class = "form-control", @name = "txtTitulo" } })
+                @Html.ValidationMessageFor(model => model.Titulo_entrada, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <h4>Contenido</h4>
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.TextAreaFor(model => model.Descripcion_entrada, 8, 160, new { htmlAttributes = new { @class = "form-control", @name = "txtDescripcion" } })
+                @*@Html.ValidationMessageFor(model => model.Descripcion_entrada, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-5 col-md-12">
+                <input type="submit" class="btn btn-primary btn-lg" value="Guardar"/>
+                @*<button type="submit" class="btn btn-primary btn-lg">
+                    <span class="glyphicon glyphicon-floppy-saved"></span> Guardar
+                </button>*@
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

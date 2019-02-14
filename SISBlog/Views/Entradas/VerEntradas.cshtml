@@ -1,0 +1,79 @@
+﻿@model IEnumerable<SISBlog.Models.Entradas>
+
+@{
+    /**/
+
+    ViewBag.Title = "VerEntradas";
+}
+
+<h2>VerEntradas</h2>
+
+<p>
+    @Html.ActionLink("Nueva entrada", "InsertarEntrada", "Entradas", htmlAttributes: new { @class = "btn btn-info" })
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_entrada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_persona)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre_persona)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Correo_electronico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_publicacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hora_publicacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo_entrada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion_entrada)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id_entrada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id_persona)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre_persona)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Correo_electronico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha_publicacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hora_publicacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo_entrada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion_entrada)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>

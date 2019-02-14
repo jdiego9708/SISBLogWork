@@ -1,0 +1,17 @@
+C:\Users\Diego\OneDrive\PROYECTOS\EN CURSO\SISBlogWork\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\Diego\OneDrive\PROYECTOS\EN CURSO\SISBlogWork\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\Diego\OneDrive\PROYECTOS\EN CURSO\SISBlogWork\CapaDatos\obj\Debug\CapaDatos.csprojAssemblyReference.cache
+C:\Users\Diego\OneDrive\PROYECTOS\EN CURSO\SISBlogWork\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\Diego\OneDrive\PROYECTOS\EN CURSO\SISBlogWork\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\Diego\OneDrive\PROYECTOS\EN CURSO\SISBlogWork\CapaDatos\obj\Debug\CapaDatos.pdb
+D:\JUAN DIEGO\Documentos\OneDrive\PROYECTOS\EN CURSO\SISBlogWork\CapaDatos\bin\Debug\CapaDatos.dll
+D:\JUAN DIEGO\Documentos\OneDrive\PROYECTOS\EN CURSO\SISBlogWork\CapaDatos\bin\Debug\CapaDatos.pdb
+D:\JUAN DIEGO\Documentos\OneDrive\PROYECTOS\EN CURSO\SISBlogWork\CapaDatos\obj\Debug\CapaDatos.csprojAssemblyReference.cache
+D:\JUAN DIEGO\Documentos\OneDrive\PROYECTOS\EN CURSO\SISBlogWork\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+D:\JUAN DIEGO\Documentos\OneDrive\PROYECTOS\EN CURSO\SISBlogWork\CapaDatos\obj\Debug\CapaDatos.dll
+D:\JUAN DIEGO\Documentos\OneDrive\PROYECTOS\EN CURSO\SISBlogWork\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\Diego\OneDrive\PROYECTOS\GitHub Repositorios\SISBLogWork\SISPage\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\Diego\OneDrive\PROYECTOS\GitHub Repositorios\SISBLogWork\SISPage\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\Diego\OneDrive\PROYECTOS\GitHub Repositorios\SISBLogWork\SISPage\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\Diego\OneDrive\PROYECTOS\GitHub Repositorios\SISBLogWork\SISPage\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\Diego\OneDrive\PROYECTOS\GitHub Repositorios\SISBLogWork\SISPage\CapaDatos\obj\Debug\CapaDatos.pdb
