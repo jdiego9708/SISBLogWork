@@ -16,6 +16,7 @@ namespace SISBlog.Controllers
 
         public ActionResult Login()
         {
+
             return View();
         }
     }
