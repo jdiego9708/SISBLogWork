@@ -46,10 +46,12 @@
                     </span>
                 </div>
 
-                <form class="login100-form validate-form">
+                @using (Html.BeginForm("Login", "Persona", FormMethod.Post, htmlAttributes: new { @class = "login100-form validate-form" }))
+                {
+                    @*<form class="login100-form validate-form">*@
                     <div class="wrap-input100 validate-input m-b-26" data-validate="El correo electronico es obligatorio">
                         <span class="label-input100">Correo electrónico</span>
-                        <input class="input100" type="text" name="username" placeholder="Ingresar correo electrónico">
+                        <input class="input100" type="text" name="correo" placeholder="Ingresar correo electrónico">
                         <span class="focus-input100"></span>
                     </div>
 
@@ -75,11 +77,17 @@
                     </div>
 
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
+                        <button type="submit" class="login100-form-btn">
                             Entrar
                         </button>
                     </div>
-                </form>
+
+                    if (TempData["MensajeOk"].ToString().Equals("NO EXISTE"))
+                    {
+                        <script>alert('Por favor verifique el usuario y la contraseña');</script>
+                    }
+                    @*</form>*@
+                }
             </div>
         </div>
     </div>

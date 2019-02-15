@@ -38,7 +38,14 @@
                     </div>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Iniciar sesión", "IniciarSesion", "Persona")</li>
+                    @if (Session["NombreUsuario"] != null)
+                    {
+                        <li>@Html.ActionLink("Usuario: " + Convert.ToString(Session["NombreUsuario"]), "PanelControl", "Home")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Iniciar sesión", "IniciarSesion", "Persona")</li>
+                    }
                 </ul>
             </div>
         </div>

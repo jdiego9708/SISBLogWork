@@ -26,5 +26,11 @@ namespace SISBlog.Controllers
 
             return View();
         }
+
+
+        public ActionResult PanelControl()
+        {
+            return View();
+        }
     }
 }

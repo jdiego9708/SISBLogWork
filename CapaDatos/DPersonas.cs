@@ -219,8 +219,8 @@ namespace CapaDatos
 
         #region METODO BUSCAR PERSONAS
 
-        public DataTable BuscarPersonas(string tipo_busqueda, string texto_busqueda,
-            out string rpta)
+        public DataTable BuscarPersonas(string tipo_busqueda, string texto_busqueda1, 
+            string texto_busqueda2, out string rpta)
         {
             rpta = "OK";
             DataTable DtResultado = new DataTable("Personas");
@@ -246,14 +246,23 @@ namespace CapaDatos
                 };
                 Sqlcmd.Parameters.Add(Tipo_busqueda);
 
-                SqlParameter Texto_busqueda = new SqlParameter
+                SqlParameter Texto_busqueda1 = new SqlParameter
                 {
-                    ParameterName = "@Texto_busqueda",
+                    ParameterName = "@Texto_busqueda1",
                     SqlDbType = SqlDbType.VarChar,
                     Size = 50,
-                    Value = texto_busqueda.Trim().ToUpper()
+                    Value = texto_busqueda1.Trim().ToUpper()
                 };
-                Sqlcmd.Parameters.Add(Texto_busqueda);
+                Sqlcmd.Parameters.Add(Texto_busqueda1);
+
+                SqlParameter Texto_busqueda2 = new SqlParameter
+                {
+                    ParameterName = "@Texto_busqueda2",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 50,
+                    Value = texto_busqueda2.Trim().ToUpper()
+                };
+                Sqlcmd.Parameters.Add(Texto_busqueda2);
 
                 SqlDataAdapter SqlData = new SqlDataAdapter(Sqlcmd);
                 SqlData.Fill(DtResultado);

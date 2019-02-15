@@ -269,8 +269,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\QuienesSomos.cshtml" />
+    <Content Include="Views\Home\Contacto.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Entradas\VerEntradas.cshtml" />
     <Content Include="Views\Entradas\InsertarEntrada.cshtml" />
@@ -281,6 +281,7 @@
     <Content Include="vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Views\Home\PanelControl.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
