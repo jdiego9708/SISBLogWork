@@ -9,7 +9,13 @@
     @Scripts.Render("~/Scripts/modernizr-2.8.3.js")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+
+    <div class="container">
+        <header>
+            <h2 class="text-primary">Felicidad en el trabajo</h2>
+        </header>
+    </div>
+    <div class="navbar navbar-inverse">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -17,7 +23,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Felicidad en el trabajo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @*@Html.ActionLink("Felicidad en el trabajo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -25,14 +31,25 @@
                     <li>@Html.ActionLink("Quienes somos", "About", "Home")</li>
                     <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                 </ul>
+                <form action="" class="navbar-form navbar-right" role="search">
+                    <div class="form-group input-group">
+                        <label class="sr-only" for="lblBuscar">Buscar</label>
+                        <input type="text" class="form-control" placeholder="Buscar artículos">
+                        <span class="input-group-btn"><button type="submit" class="btn btn-primary">Buscar</button></span>
+                    </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Iniciar sesión", "IniciarSesion", "Persona")</li>
+                </ul>
             </div>
+
         </div>
     </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>Felicidad en el trabajo</p>
+            <p>Copyright Juan Diego Duque - Soluciones informáticas</p>
         </footer>
     </div>
 

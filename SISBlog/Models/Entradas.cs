@@ -12,8 +12,8 @@ namespace SISBlog.Models
         private int _id_persona;
         private string _nombre_persona;
         private string _correo_electronico;
-        private DateTime _fecha_publicacion;
-        private DateTime _hora_publicacion;
+        private string _fecha_publicacion;
+        private string _hora_publicacion;
         private string _titulo_entrada;
         private string _descripcion_entrada;
 
@@ -26,9 +26,9 @@ namespace SISBlog.Models
         [Display(Name = "Correo electronico")]
         public string Correo_electronico { get => _correo_electronico; set => _correo_electronico = value; }
         [Display(Name = "Fecha")]
-        public DateTime Fecha_publicacion { get => _fecha_publicacion; set => _fecha_publicacion = value; }
+        public string Fecha_publicacion { get => _fecha_publicacion; set => _fecha_publicacion = value; }
         [Display(Name = "Hora")]
-        public DateTime Hora_publicacion { get => _hora_publicacion; set => _hora_publicacion = value; }
+        public string Hora_publicacion { get => _hora_publicacion; set => _hora_publicacion = value; }
         [Display(Name = "Título")]
         [Required(ErrorMessage = "Campo requerido")]
         public string Titulo_entrada { get => _titulo_entrada; set => _titulo_entrada = value; }

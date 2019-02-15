@@ -28,8 +28,10 @@ namespace SISBlog.Controllers
                     entrada.Id_persona = Convert.ToInt32(row["Id_persona"]);
                     entrada.Nombre_persona = Convert.ToString(row["Nombre_persona"]);
                     entrada.Correo_electronico = Convert.ToString(row["Correo_electronico"]);
-                    entrada.Fecha_publicacion = Convert.ToDateTime(row["Fecha_publicacion"]);
-                    entrada.Hora_publicacion = Convert.ToDateTime(row["Hora_publicacion"]);
+                    DateTime fecha = Convert.ToDateTime(row["Fecha_publicacion"]);
+                    entrada.Fecha_publicacion = fecha.ToLongDateString();
+                    //DateTime hora = Convert.ToDateTime(row["Hora_publicacion"]);
+                    entrada.Hora_publicacion = Convert.ToString(row["Hora_publicacion"]);
                     entrada.Titulo_entrada = Convert.ToString(row["Titulo_entrada"]);
                     entrada.Descripcion_entrada = Convert.ToString(row["Descripcion_entrada"]);
                     listEntradas.Add(entrada);
