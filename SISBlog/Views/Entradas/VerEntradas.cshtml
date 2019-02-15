@@ -1,40 +1,40 @@
 ﻿@model IEnumerable<SISBlog.Models.Entradas>
 
 @{
-    /**/
-
     ViewBag.Title = "Entradas y artículos";
 }
 
-<h3>Entradas y artículos</h3>
+<div class="container">
+    <h3>Entradas y artículos</h3>
 
-<p>
-    @Html.ActionLink("Nueva entrada", "InsertarEntrada", "Entradas", htmlAttributes: new { @class = "btn btn-info" })
-</p>
+    <p>
+        @Html.ActionLink("Nueva entrada", "InsertarEntrada", "Entradas", htmlAttributes: new { @class = "btn btn-info" })
+    </p>
 
-@foreach (var item in Model)
-{
-    <div class="row">
-        <div class="col-xs-12 col-md-2">
-            <div style="width:200px;" class="container">
-                <img src="~/Imagenes/add-image.png" class="img-rounded img-responsive" />
-            </div>
-        </div>
-        <div class="col-xs-12 col-md-8">
-            <h3>@Html.DisplayFor(modelItem => item.Titulo_entrada)</h3>
-            <blockquote class="blockquote">
-                <p>@Html.DisplayFor(modelItem => item.Descripcion_entrada)</p>
-                <footer>Publicación @Html.DisplayFor(modelItem => item.Fecha_publicacion)</footer>
-            </blockquote>
-        </div>
-        <aside class="hidden-xs col-md-2">
-            @*<form action="">
-                <div class="input-group">
-                    <label>Buscar</label>
-                    <input type="text" class="form-control" id="txtBuscar" placeholder="Buscar en las entradas"/>
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-xs-12 col-md-2">
+                <div style="width:200px;" class="container">
+                    <img src="~/Imagenes/add-image.png" class="img-rounded img-responsive" />
                 </div>
-            </form>*@
-        </aside>
-    </div>
+            </div>
+            <div class="col-xs-12 col-md-8">
+                <h3>@Html.DisplayFor(modelItem => item.Titulo_entrada)</h3>
+                <blockquote class="blockquote">
+                    <p>@Html.DisplayFor(modelItem => item.Descripcion_entrada)</p>
+                    <footer>Publicación @Html.DisplayFor(modelItem => item.Fecha_publicacion)</footer>
+                </blockquote>
+            </div>
+            <aside class="hidden-xs col-md-2">
+                @*<form action="">
+                        <div class="input-group">
+                            <label>Buscar</label>
+                            <input type="text" class="form-control" id="txtBuscar" placeholder="Buscar en las entradas"/>
+                        </div>
+                    </form>*@
+            </aside>
+        </div>
+    }
 
-}
+</div>

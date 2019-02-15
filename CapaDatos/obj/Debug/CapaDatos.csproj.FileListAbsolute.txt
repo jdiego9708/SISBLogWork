@@ -15,3 +15,8 @@ C:\Users\Diego\OneDrive\PROYECTOS\GitHub Repositorios\SISBLogWork\SISPage\CapaDa
 C:\Users\Diego\OneDrive\PROYECTOS\GitHub Repositorios\SISBLogWork\SISPage\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
 C:\Users\Diego\OneDrive\PROYECTOS\GitHub Repositorios\SISBLogWork\SISPage\CapaDatos\obj\Debug\CapaDatos.dll
 C:\Users\Diego\OneDrive\PROYECTOS\GitHub Repositorios\SISBLogWork\SISPage\CapaDatos\obj\Debug\CapaDatos.pdb
+D:\Repositorios GitHub\SISBLogWork\CapaDatos\bin\Debug\CapaDatos.dll
+D:\Repositorios GitHub\SISBLogWork\CapaDatos\bin\Debug\CapaDatos.pdb
+D:\Repositorios GitHub\SISBLogWork\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+D:\Repositorios GitHub\SISBLogWork\CapaDatos\obj\Debug\CapaDatos.dll
+D:\Repositorios GitHub\SISBLogWork\CapaDatos\obj\Debug\CapaDatos.pdb

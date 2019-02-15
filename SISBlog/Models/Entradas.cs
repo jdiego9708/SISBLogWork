@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace SISBlog.Models
 {
@@ -16,6 +12,7 @@ namespace SISBlog.Models
         private string _hora_publicacion;
         private string _titulo_entrada;
         private string _descripcion_entrada;
+
 
         [Display(Name = "Número de entrada")]
         public int Id_entrada { get => _id_entrada; set => _id_entrada = value; }
@@ -35,5 +32,6 @@ namespace SISBlog.Models
         [Display(Name = "Descripción")]
         [Required(ErrorMessage = "Campo requerido")]
         public string Descripcion_entrada { get => _descripcion_entrada; set => _descripcion_entrada = value; }
+
     }
 }

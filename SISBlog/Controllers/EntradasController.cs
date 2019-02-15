@@ -4,7 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using System.Web.UI;
 using CapaNegocio;
 using SISBlog.Models;
 
@@ -12,6 +12,7 @@ namespace SISBlog.Controllers
 {
     public class EntradasController : Controller
     {
+
         // GET: Entradas
         public ActionResult VerEntradas()
         {
@@ -43,23 +44,26 @@ namespace SISBlog.Controllers
 
         public ActionResult InsertarEntrada()
         {
+            TempData["MensajeOk"] = "NO";
             return View();
         }
 
-        public ActionResult Insert()
+        public ActionResult Insert(FormCollection form)
         {
-            if (ModelState.IsValid)
+            TempData["MensajeOk"] = "NO";
+            if (ModelState.IsValid && form.Count > 0)
             {
                 string rpta;
                 try
                 {
                     int id_entrada;
                     rpta = NEntradas.InsertarEntrada(2022,
-                        Convert.ToString(Request.Form["txtTitulo"]),
-                        Convert.ToString(Request.Form["txtDescripcion"]), out id_entrada);
+                        Convert.ToString(form["Titulo_entrada"]),
+                        Convert.ToString(form["Descripcion_entrada"]), out id_entrada);
                     if (rpta.Equals("OK"))
                     {
-                        return View("VerEntradas");
+                        TempData["MensajeOk"] = "OK";
+                        return View("InsertarEntrada");
                     }
                     else
                     {
@@ -68,12 +72,12 @@ namespace SISBlog.Controllers
                 }
                 catch (Exception ex)
                 {
-                    return View("VerEntradas");
+                    return View("InsertarEntrada");
                 }
             }
             else
             {
-                return View("VerEntradas");
+                return View("InsertarEntrada");
             }
         }
     }

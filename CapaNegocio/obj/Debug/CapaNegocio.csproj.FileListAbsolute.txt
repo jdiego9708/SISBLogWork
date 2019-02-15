@@ -16,3 +16,12 @@ C:\Users\Diego\OneDrive\PROYECTOS\GitHub Repositorios\SISBLogWork\SISPage\CapaNe
 C:\Users\Diego\OneDrive\PROYECTOS\GitHub Repositorios\SISBLogWork\SISPage\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
 C:\Users\Diego\OneDrive\PROYECTOS\GitHub Repositorios\SISBLogWork\SISPage\CapaNegocio\obj\Debug\CapaNegocio.dll
 C:\Users\Diego\OneDrive\PROYECTOS\GitHub Repositorios\SISBLogWork\SISPage\CapaNegocio\obj\Debug\CapaNegocio.pdb
+D:\Repositorios GitHub\SISBLogWork\CapaNegocio\bin\Debug\CapaNegocio.dll
+D:\Repositorios GitHub\SISBLogWork\CapaNegocio\bin\Debug\CapaNegocio.pdb
+D:\Repositorios GitHub\SISBLogWork\CapaNegocio\bin\Debug\CapaDatos.dll
+D:\Repositorios GitHub\SISBLogWork\CapaNegocio\bin\Debug\CapaDatos.pdb
+D:\Repositorios GitHub\SISBLogWork\CapaNegocio\obj\Debug\CapaNegocio.csprojAssemblyReference.cache
+D:\Repositorios GitHub\SISBLogWork\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+D:\Repositorios GitHub\SISBLogWork\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+D:\Repositorios GitHub\SISBLogWork\CapaNegocio\obj\Debug\CapaNegocio.dll
+D:\Repositorios GitHub\SISBLogWork\CapaNegocio\obj\Debug\CapaNegocio.pdb
