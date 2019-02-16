@@ -46,5 +46,15 @@ namespace SISBlog.Controllers
 
             return View("../Persona/IniciarSesion");
         }
+
+        public ActionResult Contacto()
+        {
+            return View();
+        }
+
+        public ActionResult QuienesSomos()
+        {
+            return View();
+        }
     }
 }

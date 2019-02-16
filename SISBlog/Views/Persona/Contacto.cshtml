@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Contacto";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well well-sm">
+                <form class="form-horizontal" method="post">
+                    <fieldset>
+                        <legend class="text-center header">Contacto</legend>
+
+                        <div class="form-group col-md-12">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input id="txtNombre" name="name" type="text" placeholder="Nombre " class="form-control">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input id="txtEmail" name="email" type="text" placeholder="Correo electrónico" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <div class="col-md-12">
+                                <textarea class="form-control" id="message" rows="7" name="message" placeholder="¡Escriba el motivo de contacto para podernos comunicar con usted!" ></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">Enviar mensaje</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
