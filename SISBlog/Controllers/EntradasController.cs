@@ -14,7 +14,7 @@ namespace SISBlog.Controllers
     {
 
         // GET: Entradas
-        public ActionResult VerEntradas()
+        public ActionResult VerEntradas(int id)
         {
             List<Entradas> listEntradas = new List<Entradas>();
             string rpta;
@@ -80,5 +80,6 @@ namespace SISBlog.Controllers
                 return View("InsertarEntrada");
             }
         }
+
     }
 }

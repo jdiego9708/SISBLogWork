@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Panel de control";
 }
 
@@ -10,7 +9,7 @@
             <div class="container">
                 <div class="btn-group btn-group-vertical">
                     @Html.ActionLink("Nueva entrada", "InsertarEntrada", "Entradas", new { id = 1 }, htmlAttributes: new { @class = "btn btn-primary btn-lg" })
-                    <a class="btn btn-primary btn-lg">Editar entrada</a>
+                    @Html.ActionLink("Editar entrada", "VerEntradas", "Entradas", new { id = 2 }, htmlAttributes: new { @class = "btn btn-primary btn-lg" })
                     <a class="btn btn-primary btn-lg">Usuarios</a>
                     <a class="btn btn-primary btn-lg">Solicitudes de contacto</a>
                     <a class="btn btn-primary btn-lg">Estadísticas</a>
