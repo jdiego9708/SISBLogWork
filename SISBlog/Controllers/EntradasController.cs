@@ -1,12 +1,9 @@
-﻿using System;
+﻿using CapaNegocio;
+using SISBlog.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.UI;
-using CapaNegocio;
-using SISBlog.Models;
 
 namespace SISBlog.Controllers
 {
@@ -14,8 +11,10 @@ namespace SISBlog.Controllers
     {
 
         // GET: Entradas
-        public ActionResult VerEntradas(int id)
+        public ActionResult VerEntradas(bool isEditar = false)
         {
+            ViewBag.isEditar = isEditar;
+
             List<Entradas> listEntradas = new List<Entradas>();
             string rpta;
             DataTable tablaEntradas =
@@ -42,15 +41,23 @@ namespace SISBlog.Controllers
             return View(listEntradas);
         }
 
-        public ActionResult InsertarEntrada()
+        public ActionResult InsertarEntrada(Entradas entradaEditar)
         {
-            TempData["MensajeOk"] = "NO";
-            return View();
+            if (entradaEditar != null)
+            {
+
+                ViewBag.isEditar = true;
+                return View(entradaEditar);
+            }
+            else
+            {
+                ViewBag.isEditar = false;
+                return View();
+            }
         }
 
         public ActionResult Insert(FormCollection form)
         {
-            TempData["MensajeOk"] = "NO";
             if (ModelState.IsValid && form.Count > 0)
             {
                 string rpta;
@@ -62,7 +69,8 @@ namespace SISBlog.Controllers
                         Convert.ToString(form["Descripcion_entrada"]), out id_entrada);
                     if (rpta.Equals("OK"))
                     {
-                        TempData["MensajeOk"] = "OK";
+                        ViewBag.Insert = rpta;
+                        //TempData["MensajeOk"] = "OK";
                         return View("InsertarEntrada");
                     }
                     else
@@ -70,7 +78,7 @@ namespace SISBlog.Controllers
                         throw new Exception(rpta);
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     return View("InsertarEntrada");
                 }

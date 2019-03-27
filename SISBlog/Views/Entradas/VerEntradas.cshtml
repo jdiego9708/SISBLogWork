@@ -39,7 +39,7 @@
             <span class="sr-only">Siguiente</span>
         </a>
     </div>
-</div>  
+</div>
 <div class="container">
     <h3>Entradas y artículos</h3>
 
@@ -58,14 +58,15 @@
                     <footer>Publicación @Html.DisplayFor(modelItem => item.Fecha_publicacion)</footer>
                 </blockquote>
             </div>
-            <aside class="hidden-xs col-md-2">
-                @*<form action="">
-                        <div class="input-group">
-                            <label>Buscar</label>
-                            <input type="text" class="form-control" id="txtBuscar" placeholder="Buscar en las entradas"/>
-                        </div>
-                    </form>*@
-            </aside>
+            @if (ViewBag.isEditar == true)
+            {
+                using (Html.BeginForm("InsertarEntrada", "Entradas", item))
+                {
+                    <aside class="hidden-xs col-md-2">
+                        @Html.ActionLink("Editar", "InsertarEntrada", "Entradas", htmlAttributes: new { @class = "btn btn-primary btn-lg" })
+                    </aside>
+                }
+            }
         </div>
     }
 
