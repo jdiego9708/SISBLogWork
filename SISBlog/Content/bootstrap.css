@@ -278,6 +278,7 @@ th {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 .glyphicon-asterisk:before {
   content: "\002a";
 }
@@ -1088,6 +1089,15 @@ body {
   color: #333;
   background-color: #fff;
 }
+
+.showcss {
+    display: block;
+}
+
+.hidecss {
+    display: none;
+}
+
 input,
 button,
 select,

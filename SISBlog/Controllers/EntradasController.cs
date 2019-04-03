@@ -9,31 +9,26 @@ namespace SISBlog.Controllers
 {
     public class EntradasController : Controller
     {
-
         // GET: Entradas
-        public ActionResult VerEntradas(bool isEditar = false)
+        public ActionResult VerEntradas(string tipo_busqueda, string texto_busqueda, bool isEditar = false)
         {
-            ViewBag.isEditar = isEditar;
+            //Si el tipo de búsqueda es null asignamos el tipo de búsqueda
+            if (tipo_busqueda == null)
+            {
+                tipo_busqueda = "COMPLETO";
+                texto_busqueda = "";
+            }
 
             List<Entradas> listEntradas = new List<Entradas>();
             string rpta;
             DataTable tablaEntradas =
-                NEntradas.BuscarEntradas("COMPLETO", "", out rpta);
+                NEntradas.BuscarEntradas(tipo_busqueda, texto_busqueda, out rpta);
             if (tablaEntradas != null & rpta.Equals("OK"))
             {
                 foreach (DataRow row in tablaEntradas.Rows)
                 {
-                    Entradas entrada = new Entradas();
-                    entrada.Id_entrada = Convert.ToInt32(row["Id_entrada"]);
-                    entrada.Id_persona = Convert.ToInt32(row["Id_persona"]);
-                    entrada.Nombre_persona = Convert.ToString(row["Nombre_persona"]);
-                    entrada.Correo_electronico = Convert.ToString(row["Correo_electronico"]);
-                    DateTime fecha = Convert.ToDateTime(row["Fecha_publicacion"]);
-                    entrada.Fecha_publicacion = fecha.ToLongDateString();
-                    //DateTime hora = Convert.ToDateTime(row["Hora_publicacion"]);
-                    entrada.Hora_publicacion = Convert.ToString(row["Hora_publicacion"]);
-                    entrada.Titulo_entrada = Convert.ToString(row["Titulo_entrada"]);
-                    entrada.Descripcion_entrada = Convert.ToString(row["Descripcion_entrada"]);
+                    Entradas entrada = new Entradas(row);
+                    entrada.IsEditar = isEditar;
                     listEntradas.Add(entrada);
                 }
             }
@@ -45,13 +40,18 @@ namespace SISBlog.Controllers
         {
             if (entradaEditar != null)
             {
+                if (entradaEditar.IsEditar)
+                {
+                    return View(entradaEditar);
+                }
+                else
+                {
+                    return View();
+                }
 
-                ViewBag.isEditar = true;
-                return View(entradaEditar);
             }
             else
             {
-                ViewBag.isEditar = false;
                 return View();
             }
         }
@@ -64,14 +64,26 @@ namespace SISBlog.Controllers
                 try
                 {
                     int id_entrada;
-                    rpta = NEntradas.InsertarEntrada(2022,
+                    bool isEditar = Convert.ToBoolean(form["isEditar"]);
+                    if (isEditar)
+                    {
+                        id_entrada = Convert.ToInt32(form["Id_entrada"]);
+                        rpta = NEntradas.EditarEntrada(id_entrada, 2022,
+                        Convert.ToString(form["Titulo_entrada"]),
+                        Convert.ToString(form["Descripcion_entrada"]));
+                    }
+                    else
+                    {
+                        rpta = NEntradas.InsertarEntrada(2022,
                         Convert.ToString(form["Titulo_entrada"]),
                         Convert.ToString(form["Descripcion_entrada"]), out id_entrada);
+                    }
+
                     if (rpta.Equals("OK"))
                     {
                         ViewBag.Insert = rpta;
                         //TempData["MensajeOk"] = "OK";
-                        return View("InsertarEntrada");
+                        return View("InsertarEntrada", new Entradas());
                     }
                     else
                     {
@@ -80,12 +92,12 @@ namespace SISBlog.Controllers
                 }
                 catch (Exception)
                 {
-                    return View("InsertarEntrada");
+                    return View("InsertarEntrada", new Entradas());
                 }
             }
             else
             {
-                return View("InsertarEntrada");
+                return View("InsertarEntrada", new Entradas());
             }
         }
 

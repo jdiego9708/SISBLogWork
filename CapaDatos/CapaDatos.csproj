@@ -46,6 +46,7 @@
     <Compile Include="DEntradas.cs" />
     <Compile Include="DPersonas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DSolicitudes.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

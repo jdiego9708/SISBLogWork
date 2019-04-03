@@ -6,7 +6,18 @@
 
 <div class="container">
 
-    <h2>Nueva entrada</h2>
+    @{
+        if (Model.IsEditar)
+        {
+            <h2>Editar entrada</h2>
+        }
+        else
+        {
+            <h2>Nueva entrada</h2>
+        }
+    }
+
+
 
     @using (Html.BeginForm("Insert", "Entradas", FormMethod.Post))
     {
@@ -15,21 +26,19 @@
         <div class="form-horizontal">
             <h4>Entradas</h4>
             <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
             <div class="form-group">
                 @Html.LabelFor(model => model.Fecha_publicacion, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
                     @Html.EditorFor(model => model.Fecha_publicacion,
-                   new { htmlAttributes = new { @class = "form-control", @readonly = "readonly",
-                       @Value = ViewBag.isEditar? Model.Fecha_publicacion : DateTime.Now.ToLongDateString()} })
+    new { htmlAttributes = new { @class = "form-control", @readonly = "readonly",
+        @Value = Model.IsEditar ? Model.Fecha_publicacion : DateTime.Now.ToLongDateString() } })
                     @*@Html.ValidationMessageFor(model => model.Fecha_publicacion, "", new { @class = "text-danger" })*@
                 </div>
 
                 @Html.LabelFor(model => model.Hora_publicacion, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
                     @Html.EditorFor(model => model.Hora_publicacion,
-                   new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @Value = DateTime.Now.ToShortTimeString() } })
+    new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @Value = Model.IsEditar ? Model.Hora_publicacion : DateTime.Now.ToShortTimeString() } })
                     @*@Html.ValidationMessageFor(model => model.Hora_publicacion, "", new { @class = "text-danger" })*@
                 </div>
             </div>
@@ -38,7 +47,7 @@
                 @Html.Label("Autor", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Nombre_persona,
-                   new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @Value = "Pablo Andrés Erazo Muñoz", @name= "txtPersona" } })
+    new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @Value = "Pablo Andrés Erazo Muñoz", @name = "txtPersona" } })
                     @*@Html.ValidationMessageFor(model => model.Nombre_persona, "", new { @class = "text-danger" })*@
                 </div>
             </div>
@@ -46,15 +55,16 @@
             <h3>Título</h3>
             <div class="form-group">
                 <div class="col-md-12">
+                    @Html.ValidationMessageFor(model => model.Titulo_entrada, "El titulo es requerido", new { @class = "text-danger" })
                     @Html.EditorFor(model => model.Titulo_entrada,
-                   new { htmlAttributes = new
-                   {
-                       @class = "form-control",
-                       @id = "txtTitulo",
-                       @placeHolder = "Título descriptivo del tema",
-                       @Value = ViewBag.isEditar ? Model.Titulo_entrada : ""
-                   } })
-                    @Html.ValidationMessageFor(model => model.Titulo_entrada, "", new { @class = "text-danger" })
+    new { htmlAttributes = new
+    {
+        @class = "form-control",
+        @id = "txtTitulo",
+        @placeHolder = "Título descriptivo del tema",
+        @autocomplete = "off"
+    } })
+
                 </div>
             </div>
 
@@ -70,9 +80,20 @@
             <div class="form-group">
                 <div class="col-md-offset-5 col-md-12">
                     @*<input type="submit" class="btn btn-primary btn-lg" value="Guardar" />*@
-                    <button type="submit" class="btn btn-primary btn-lg">
-                        <span class="glyphicon glyphicon-floppy-saved"></span> Guardar
-                    </button>
+                    @Html.Hidden("isEditar", Model.IsEditar);
+                    @Html.Hidden("Id_entrada", Model.Id_entrada);
+                    @if (Model.IsEditar)
+                    {
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <span class="glyphicon glyphicon-floppy-saved"></span> Actualizar
+                        </button>
+                    }
+                    else
+                    {
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <span class="glyphicon glyphicon-floppy-saved"></span> Guardar
+                        </button>
+                    }
                 </div>
             </div>
         </div>

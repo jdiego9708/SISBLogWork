@@ -17,15 +17,15 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
-                <img src="~/Images/banner.jpg" alt="1">
+                <img src="~/Images/banner.jpg" alt="1" width="800" height="300">
             </div>
 
             <div class="item">
-                <img src="~/Images/banner2.jpg" alt="2">
+                <img src="~/Images/banner2.jpg" alt="2" width="800" height="300">
             </div>
 
             <div class="item">
-                <img src="~/Images/banner3.jpg" alt="3">
+                <img src="~/Images/banner3.jpg" alt="3" width="800" height="300">
             </div>
         </div>
 
@@ -40,17 +40,41 @@
         </a>
     </div>
 </div>
+<br />
+<div class="container">
+
+    @using (Html.BeginForm("VerEntradas", "Entradas", FormMethod.Post))
+    {
+        <div class="row">
+            <div class="col-xs-6 col-md-12">
+                <div class="input-group">
+                    @Html.Hidden("tipo_busqueda", "TODO")
+                    <input type="text" class="form-control" autocomplete="off"
+                           placeholder="Búsqueda de entradas" id="txtBusqueda" name="texto_busqueda" />
+                    <div class="input-group-btn">
+                        <button class="btn btn-primary" type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+
 <div class="container">
     <h3>Entradas y artículos</h3>
 
     @foreach (var item in Model)
     {
         <div class="row">
-            <div class="col-xs-12 col-md-2">
+            @*<div class="col-xs-12 col-md-2">
                 <div style="width:200px;" class="container">
                     <img src="~/Images/add-image.png" class="img-rounded img-responsive" />
                 </div>
-            </div>
+            </div>*@
             <div class="col-xs-12 col-md-8">
                 <h3>@Html.DisplayFor(modelItem => item.Titulo_entrada)</h3>
                 <blockquote class="blockquote">
@@ -58,12 +82,12 @@
                     <footer>Publicación @Html.DisplayFor(modelItem => item.Fecha_publicacion)</footer>
                 </blockquote>
             </div>
-            @if (ViewBag.isEditar == true)
+            @if (item.IsEditar)
             {
                 using (Html.BeginForm("InsertarEntrada", "Entradas", item))
                 {
                     <aside class="hidden-xs col-md-2">
-                        @Html.ActionLink("Editar", "InsertarEntrada", "Entradas", htmlAttributes: new { @class = "btn btn-primary btn-lg" })
+                        <button type="submit" class="btn btn-primary btn-lg">Editar</button>
                     </aside>
                 }
             }

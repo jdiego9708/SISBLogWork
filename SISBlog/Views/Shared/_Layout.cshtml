@@ -28,7 +28,7 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Inicio", "VerEntradas", "Entradas")</li>
                     <li>@Html.ActionLink("Quienes somos", "QuienesSomos", "Persona")</li>
-                    <li>@Html.ActionLink("Contacto", "Contacto", "Persona")</li>
+                    <li>@Html.ActionLink("Contacto", "VerNuevaSolicitud", "Solicitud")</li>
                 </ul>
                 <form action="" class="navbar-form navbar-right" role="search">
                     <div class="form-group input-group">
@@ -60,6 +60,7 @@
     </div>
 
     @Scripts.Render("~/Scripts/jquery-3.3.1.js")
+    @Scripts.Render("~/Scripts/CustomFunctions.js")
     @Scripts.Render("~/Scripts/bootstrap.min.js")
     @RenderSection("scripts", required: false)
 </body>

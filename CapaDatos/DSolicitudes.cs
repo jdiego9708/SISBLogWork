@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Data;
+using System.Data.SqlClient;
+
 namespace CapaDatos
 {
-    public class DEntradas
+    public class DSolicitudes
     {
         #region MENSAJE
         private void SqlCon_InfoMessage(object sender, SqlInfoMessageEventArgs e)
@@ -35,11 +36,11 @@ namespace CapaDatos
         }
         #endregion
 
-        #region METODO INSERTAR ENTRADA
-        public string InsertarEntrada(int id_persona, string titulo_entrada, string descripcion,
-            out int id_entrada)
+        #region METODO INSERTAR SOLICITUD
+        public string InsertarSolicidud(out int id_solicitud, string descripcion,
+             string nombre, string correo)
         {
-            id_entrada = 0;
+            id_solicitud = 0;
             //asignamos a una cadena string la variable rpta y la iniciamos en vacía
             string rpta = "";
             SqlConnection SqlCon = new SqlConnection();
@@ -54,44 +55,45 @@ namespace CapaDatos
                 SqlCommand SqlCmd = new SqlCommand
                 {
                     Connection = SqlCon,
-                    CommandText = "sp_Insertar_entrada",
+                    CommandText = "sp_Insertar_solicitud",
                     //Indicamos que es un procedimiento almacenado
                     CommandType = CommandType.StoredProcedure
                 };
 
-                SqlParameter Id_entrada = new SqlParameter
+                SqlParameter Id_solicitud = new SqlParameter
                 {
-                    ParameterName = "@Id_entrada",
+                    ParameterName = "@Id_solicitud",
                     SqlDbType = SqlDbType.Int,
                     Direction = ParameterDirection.Output
                 };
-                SqlCmd.Parameters.Add(Id_entrada);
+                SqlCmd.Parameters.Add(Id_solicitud);
 
-                SqlParameter Id_persona = new SqlParameter
+                SqlParameter Descripcion = new SqlParameter
                 {
-                    ParameterName = "@Id_persona",
-                    SqlDbType = SqlDbType.Int,
-                    Value = id_persona
-                };
-                SqlCmd.Parameters.Add(Id_persona);
-
-                SqlParameter Titulo_entrada = new SqlParameter
-                {
-                    ParameterName = "@Titulo_entrada",
+                    ParameterName = "@Descripcion",
                     SqlDbType = SqlDbType.VarChar,
-                    Size = 100,
-                    Value = titulo_entrada
+                    Size = 500,
+                    Value = descripcion.Trim().ToUpper()
                 };
-                SqlCmd.Parameters.Add(Titulo_entrada);
+                SqlCmd.Parameters.Add(Descripcion);
 
-                SqlParameter Descripcion_entrada = new SqlParameter
+                SqlParameter Nombre_persona = new SqlParameter
                 {
-                    ParameterName = "@Descripcion_entrada",
+                    ParameterName = "@Nombre_persona",
                     SqlDbType = SqlDbType.VarChar,
-                    Size = 8000,
-                    Value = descripcion
+                    Size = 500,
+                    Value = nombre.Trim().ToUpper()
                 };
-                SqlCmd.Parameters.Add(Descripcion_entrada);
+                SqlCmd.Parameters.Add(Nombre_persona);
+
+                SqlParameter Correo_electronico = new SqlParameter
+                {
+                    ParameterName = "@Correo_electronico",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 250,
+                    Value = correo.Trim()
+                };
+                SqlCmd.Parameters.Add(Correo_electronico);
 
                 //Ejecutamos nuestro comando
                 rpta = SqlCmd.ExecuteNonQuery() >= 1 ? "OK" : "NO SE INGRESÓ";
@@ -104,7 +106,7 @@ namespace CapaDatos
                 }
                 else
                 {
-                    id_entrada = Convert.ToInt32(SqlCmd.Parameters["@Id_entrada"].Value);
+                    id_solicitud = Convert.ToInt32(SqlCmd.Parameters["@Id_solicitud"].Value);
                 }
             }
             //Mostramos posible error que tengamos
@@ -127,10 +129,10 @@ namespace CapaDatos
 
         #endregion
 
-        #region METODO EDITAR ENTRADA
-        public string Editar_entrada(int id_entrada, int id_persona, 
-            string titulo_entrada, string descripcion)
+        #region METODO ACTUALIZAR SOLICITUD
+        public string ActualizarSolicidud(int id_solicitud, string estado)
         {
+            id_solicitud = 0;
             //asignamos a una cadena string la variable rpta y la iniciamos en vacía
             string rpta = "";
             SqlConnection SqlCon = new SqlConnection();
@@ -145,44 +147,27 @@ namespace CapaDatos
                 SqlCommand SqlCmd = new SqlCommand
                 {
                     Connection = SqlCon,
-                    CommandText = "sp_Editar_entrada",
+                    CommandText = "sp_Insertar_solicitud",
                     //Indicamos que es un procedimiento almacenado
                     CommandType = CommandType.StoredProcedure
                 };
 
-                SqlParameter Id_entrada = new SqlParameter
+                SqlParameter Id_solicitud = new SqlParameter
                 {
-                    ParameterName = "@Id_entrada",
+                    ParameterName = "@Id_solicitud",
                     SqlDbType = SqlDbType.Int,
-                    Value = id_entrada
+                    Value = id_solicitud
                 };
-                SqlCmd.Parameters.Add(Id_entrada);
+                SqlCmd.Parameters.Add(Id_solicitud);
 
-                SqlParameter Id_persona = new SqlParameter
+                SqlParameter Estado = new SqlParameter
                 {
-                    ParameterName = "@Id_persona",
-                    SqlDbType = SqlDbType.Int,
-                    Value = id_persona
-                };
-                SqlCmd.Parameters.Add(Id_persona);
-
-                SqlParameter Titulo_entrada = new SqlParameter
-                {
-                    ParameterName = "@Titulo_entrada",
+                    ParameterName = "@Estado",
                     SqlDbType = SqlDbType.VarChar,
-                    Size = 100,
-                    Value = titulo_entrada
+                    Size = 50,
+                    Value = estado.Trim().ToUpper()
                 };
-                SqlCmd.Parameters.Add(Titulo_entrada);
-
-                SqlParameter Descripcion_entrada = new SqlParameter
-                {
-                    ParameterName = "@Descripcion_entrada",
-                    SqlDbType = SqlDbType.VarChar,
-                    Size = 8000,
-                    Value = descripcion
-                };
-                SqlCmd.Parameters.Add(Descripcion_entrada);
+                SqlCmd.Parameters.Add(Estado);
 
                 //Ejecutamos nuestro comando
                 rpta = SqlCmd.ExecuteNonQuery() >= 1 ? "OK" : "NO SE INGRESÓ";
@@ -214,13 +199,12 @@ namespace CapaDatos
 
         #endregion
 
-        #region METODO BUSCAR ENTRADA
+        #region METODO BUSCAR SOLICITUDES
 
-        public DataTable BuscarEntradas(string tipo_busqueda, string texto_busqueda, 
-            out string rpta)
+        public DataTable BuscarSolicitudes(string tipo_busqueda, string texto_busqueda, out string rpta)
         {
             rpta = "OK";
-            DataTable DtResultado = new DataTable("Entradas");
+            DataTable DtResultado = new DataTable("Solicitudes");
             SqlConnection SqlCon = new SqlConnection();
             SqlCon.InfoMessage += new SqlInfoMessageEventHandler(SqlCon_InfoMessage);
             SqlCon.FireInfoMessageEventOnUserErrors = true;
@@ -230,7 +214,7 @@ namespace CapaDatos
                 SqlCommand Sqlcmd = new SqlCommand
                 {
                     Connection = SqlCon,
-                    CommandText = "sp_Buscar_entradas",
+                    CommandText = "sp_Buscar_solicitudes",
                     CommandType = CommandType.StoredProcedure
                 };
 
@@ -248,9 +232,10 @@ namespace CapaDatos
                     ParameterName = "@Texto_busqueda",
                     SqlDbType = SqlDbType.VarChar,
                     Size = 50,
-                    Value = texto_busqueda.Trim()
+                    Value = texto_busqueda.Trim().ToUpper()
                 };
                 Sqlcmd.Parameters.Add(Texto_busqueda);
+
 
                 SqlDataAdapter SqlData = new SqlDataAdapter(Sqlcmd);
                 SqlData.Fill(DtResultado);
