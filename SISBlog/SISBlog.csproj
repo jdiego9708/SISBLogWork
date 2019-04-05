@@ -290,6 +290,7 @@
     <Content Include="Views\Persona\Contacto.cshtml" />
     <Content Include="Views\Persona\QuienesSomos.cshtml" />
     <Content Include="Views\Solicitud\VerNuevaSolicitud.cshtml" />
+    <Content Include="Views\Solicitud\ViewPartialMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

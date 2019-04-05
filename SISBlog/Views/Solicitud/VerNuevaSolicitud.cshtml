@@ -3,6 +3,50 @@
 @{
     ViewBag.Title = "Nueva Solicitud";
 }
+<script type="text/javascript">
+    //Remark: all this javascript could be placed in a separate js file
+    //to avoid cluttering the views
+    Scripts.Render("~/Scripts/jquery-3.3.1.js")
+
+    if (ViewBag.Insert != null) {
+        if (Convert.ToString(ViewBag.Insert) == "OK") {
+            MensajeOk("Se envió la solicitud correctamente!")
+        }
+        else {
+            MensajeError("No se pudo enviar la solicitud, contacte con el administrador")
+        }
+    }
+
+    function MensajeOk(mensaje) {
+        $("#Mensaje").html("<h4 class='success'>" + mensaje + "</h4>");
+    };
+
+    function MensajeError(mensaje) {
+        $("#Mensaje").html("<h4 class='danger'>" + mensaje + "</h4>");
+    }
+
+</script>
+<div id="Mensaje"></div>
+
+@*@if (ViewBag.Insert != null)
+    {
+        if (Convert.ToString(ViewBag.Insert) == "OK")
+        {
+            <div class="container" id="MensajeOk">
+                <h4 class="success">Solicitud enviada con éxito!</h4>
+            </div>
+        }
+        else
+        {
+            <div id="MensajeError">
+                <h3>No se pudo enviar</h3>
+            </div>
+        }
+    }*@
+
+
+
+
 @using (Html.BeginForm("InsertarNuevaSolicitud", "Solicitud", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
@@ -51,8 +95,4 @@
             </div>
         </div>
     </div>
-}
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
 }

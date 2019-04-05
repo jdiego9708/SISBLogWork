@@ -7,13 +7,18 @@ namespace SISBlog.Controllers
 {
     public class SolicitudController : Controller
     {
+        public ActionResult ViewPartialMessage()
+        {
+            return View();
+        }
+
         // GET: Solicitud
         public ActionResult VerNuevaSolicitud()
         {
             return View();
         }
 
-        public JavaScriptResult InsertarNuevaSolicitud(FormCollection form)
+        public ActionResult InsertarNuevaSolicitud(FormCollection form)
         {
             if (ModelState.IsValid && form.Count > 0)
             {
@@ -26,20 +31,20 @@ namespace SISBlog.Controllers
                     if (rpta.Equals("OK"))
                     {
                         ViewBag.Insert = rpta;
-                        return JavaScript ("alert("+ "Solicitud enviada correctamente, Número de solicitud" + 
-                            id_solicitud.ToString() +");");
+                        return View("VerNuevaSolicitud");
                     }
                     else
                     {
                         throw new Exception(rpta);
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    return JavaScript("alert(" + "Hubo un error al procesar la solicitud "+ ");");
+                    ViewBag.Insert = ex.Message;
+                    return View("VerNuevaSolicitud");
                 }
             }
-            return JavaScript("alert(" + "Hubo un error al procesar la solicitud " + ");");
+            return View("VerNuevaSolicitud");
             //return View("VerNuevaSolicitud");
         }
     }
