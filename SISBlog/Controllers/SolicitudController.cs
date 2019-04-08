@@ -1,5 +1,8 @@
 ﻿using CapaNegocio;
+using SISBlog.Models;
 using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Web.Mvc;
 using System.Web.UI;
 
@@ -7,8 +10,26 @@ namespace SISBlog.Controllers
 {
     public class SolicitudController : Controller
     {
-        public ActionResult ViewPartialMessage()
+        public ActionResult VerSolicitudes()
         {
+            try
+            {
+                DataTable dtSolicitudes =
+                    NSolicitudes.BuscarSolicitudes("COMPLETO", "", out string rpta);
+                if (dtSolicitudes != null)
+                {
+                    List<Solicitud> solicitudes = new List<Solicitud>();
+                    foreach(DataRow row in dtSolicitudes.Rows)
+                    {
+                        solicitudes.Add(new Solicitud(row));
+                    }
+                    return View(solicitudes);
+                }
+            }
+            catch (Exception)
+            {
+                return View();
+            }
             return View();
         }
 

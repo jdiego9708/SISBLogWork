@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 
 namespace SISBlog.Models
@@ -45,11 +46,18 @@ namespace SISBlog.Models
         private string _descripcion;
         private string _estado;
 
+        [Display(Name = "Número de solicitud")]
         public int Id_solicitud { get => _id_solicitud; set => _id_solicitud = value; }
+        //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
+        [Display(Name = "Fecha de solicitud")]
         public DateTime Fecha_solicitud { get => _fecha_solicitud; set => _fecha_solicitud = value; }
+        [Display(Name = "Hora")]
         public string Hora_solicitud { get => _hora_solicitud; set => _hora_solicitud = value; }
+        [Display(Name = "Persona")]
         public Persona Persona { get => _persona; set => _persona = value; }
+        [Display(Name = "Descripción")]
         public string Descripcion { get => _descripcion; set => _descripcion = value; }
+        [Display(Name = "Estado")]
         public string Estado { get => _estado; set => _estado = value; }
     }
 }

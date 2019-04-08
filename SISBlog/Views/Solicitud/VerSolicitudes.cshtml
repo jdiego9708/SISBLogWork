@@ -1,0 +1,46 @@
+﻿@model IEnumerable<SISBlog.Models.Solicitud>
+
+<div class="container">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id_solicitud)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha_solicitud)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hora_solicitud)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id_solicitud)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha_solicitud)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hora_solicitud)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

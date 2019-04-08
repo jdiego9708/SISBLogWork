@@ -291,6 +291,8 @@
     <Content Include="Views\Persona\QuienesSomos.cshtml" />
     <Content Include="Views\Solicitud\VerNuevaSolicitud.cshtml" />
     <Content Include="Views\Solicitud\ViewPartialMessage.cshtml" />
+    <Content Include="Views\Solicitud\VerSolicitudes.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
