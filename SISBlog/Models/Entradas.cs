@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
 
@@ -50,7 +51,7 @@ namespace SISBlog.Models
         private string _titulo_entrada;
         private string _descripcion_entrada;
         private bool _isEditar;
-
+        private List<Comentario> _comentarios;
 
         [Display(Name = "Número de entrada")]
         public int Id_entrada { get => _id_entrada; set => _id_entrada = value; }
@@ -71,5 +72,6 @@ namespace SISBlog.Models
         [Required(ErrorMessage = "Campo requerido")]
         public string Descripcion_entrada { get => _descripcion_entrada; set => _descripcion_entrada = value; }
         public bool IsEditar { get => _isEditar; set => _isEditar = value; }
+        public List<Comentario> Comentarios { get => _comentarios; set => _comentarios = value; }
     }
 }

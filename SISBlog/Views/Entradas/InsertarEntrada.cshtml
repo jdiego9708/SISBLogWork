@@ -30,8 +30,15 @@
                 @Html.LabelFor(model => model.Fecha_publicacion, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
                     @Html.EditorFor(model => model.Fecha_publicacion,
-    new { htmlAttributes = new { @class = "form-control", @readonly = "readonly",
-        @Value = Model.IsEditar ? Model.Fecha_publicacion : DateTime.Now.ToLongDateString() } })
+    new
+         {
+             htmlAttributes = new
+             {
+                 @class = "form-control",
+                 @readonly = "readonly",
+        @Value = Model.IsEditar ? Model.Fecha_publicacion : DateTime.Now.ToLongDateString()
+             }
+         })
                     @*@Html.ValidationMessageFor(model => model.Fecha_publicacion, "", new { @class = "text-danger" })*@
                 </div>
 
@@ -57,13 +64,16 @@
                 <div class="col-md-12">
                     @Html.ValidationMessageFor(model => model.Titulo_entrada, "El titulo es requerido", new { @class = "text-danger" })
                     @Html.EditorFor(model => model.Titulo_entrada,
-    new { htmlAttributes = new
+    new
+         {
+             htmlAttributes = new
     {
         @class = "form-control",
         @id = "txtTitulo",
         @placeHolder = "Título descriptivo del tema",
         @autocomplete = "off"
-    } })
+    }
+         })
 
                 </div>
             </div>

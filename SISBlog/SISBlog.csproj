@@ -126,6 +126,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ComentarioController.cs" />
     <Compile Include="Controllers\EntradasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonaController.cs" />
@@ -133,6 +134,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Comentario.cs" />
     <Compile Include="Models\Entradas.cs" />
     <Compile Include="Models\Persona.cs" />
     <Compile Include="Models\Solicitud.cs" />
@@ -293,9 +295,12 @@
     <Content Include="Views\Solicitud\ViewPartialMessage.cshtml" />
     <Content Include="Views\Solicitud\VerSolicitudes.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\Entradas\ProfileEntrada.cshtml" />
+    <Content Include="Views\Shared\ViewOk.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Comentario\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

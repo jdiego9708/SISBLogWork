@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion.cs" />
+    <Compile Include="DComentarios.cs" />
     <Compile Include="DEntradas.cs" />
     <Compile Include="DPersonas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -20,3 +20,8 @@ D:\Repositorios GitHub\SISBLogWork\CapaDatos\bin\Debug\CapaDatos.pdb
 D:\Repositorios GitHub\SISBLogWork\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
 D:\Repositorios GitHub\SISBLogWork\CapaDatos\obj\Debug\CapaDatos.dll
 D:\Repositorios GitHub\SISBLogWork\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\Diego\Repositorios\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\Diego\Repositorios\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\Diego\Repositorios\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\Diego\Repositorios\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\Diego\Repositorios\CapaDatos\obj\Debug\CapaDatos.pdb

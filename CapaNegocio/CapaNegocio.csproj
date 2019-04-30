@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NComentarios.cs" />
     <Compile Include="NEntradas.cs" />
     <Compile Include="NPersonas.cs" />
     <Compile Include="NSolicitudes.cs" />

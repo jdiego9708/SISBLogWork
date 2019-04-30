@@ -20,9 +20,8 @@ namespace SISBlog.Controllers
             }
 
             List<Entradas> listEntradas = new List<Entradas>();
-            string rpta;
             DataTable tablaEntradas =
-                NEntradas.BuscarEntradas(tipo_busqueda, texto_busqueda, out rpta);
+                NEntradas.BuscarEntradas(tipo_busqueda, texto_busqueda, out string rpta);
             if (tablaEntradas != null & rpta.Equals("OK"))
             {
                 foreach (DataRow row in tablaEntradas.Rows)
@@ -36,7 +35,7 @@ namespace SISBlog.Controllers
             return View(listEntradas);
         }
 
-        public ActionResult InsertarEntrada(Entradas entradaEditar)
+        public ActionResult InsertarEntrada(Entradas entradaEditar = null)
         {
             if (entradaEditar != null)
             {
@@ -46,13 +45,13 @@ namespace SISBlog.Controllers
                 }
                 else
                 {
-                    return View();
+                    return View(new Entradas() { IsEditar = false });
                 }
 
             }
             else
             {
-                return View();
+                return View(new Entradas() { IsEditar = false });
             }
         }
 
@@ -99,6 +98,25 @@ namespace SISBlog.Controllers
             {
                 return View("InsertarEntrada", new Entradas());
             }
+        }
+
+        public ActionResult ProfileEntrada(Entradas entradaEditar)
+        {
+            List<Comentario> comentarios = new List<Comentario>();
+            DataTable dtComentarios =
+                NComentarios.BuscarComentarios("COMPLETO ID ENTRADA", entradaEditar.Id_entrada.ToString(),
+                out string rpta);
+            if (dtComentarios != null)
+            {
+                foreach (DataRow row in dtComentarios.Rows)
+                {
+                    Comentario comentario = new Comentario(row);
+                    comentarios.Add(comentario);
+                }
+                entradaEditar.Comentarios = comentarios;
+            }
+
+            return View(entradaEditar);
         }
 
     }

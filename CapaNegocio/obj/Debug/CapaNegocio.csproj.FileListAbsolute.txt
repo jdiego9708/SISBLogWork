@@ -25,3 +25,12 @@ D:\Repositorios GitHub\SISBLogWork\CapaNegocio\obj\Debug\CapaNegocio.csproj.Core
 D:\Repositorios GitHub\SISBLogWork\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
 D:\Repositorios GitHub\SISBLogWork\CapaNegocio\obj\Debug\CapaNegocio.dll
 D:\Repositorios GitHub\SISBLogWork\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\Users\Diego\Repositorios\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\Diego\Repositorios\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\Diego\Repositorios\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\Diego\Repositorios\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\Diego\Repositorios\CapaNegocio\obj\Debug\CapaNegocio.csprojAssemblyReference.cache
+C:\Users\Diego\Repositorios\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\Diego\Repositorios\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+C:\Users\Diego\Repositorios\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\Diego\Repositorios\CapaNegocio\obj\Debug\CapaNegocio.pdb

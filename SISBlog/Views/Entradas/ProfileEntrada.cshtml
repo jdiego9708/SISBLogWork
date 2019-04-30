@@ -1,0 +1,104 @@
+﻿@model SISBlog.Models.Entradas
+
+@{
+    ViewBag.Title = "ProfileEntrada";
+}
+
+<script>
+    function returnText(id) {
+        var txtComentario = document.getElementById(id).nodeValue;
+        return txtComentario;
+    }
+</script>
+
+<div class="container">
+    @{
+        <div class="form-group">
+            <div class="text-center">
+                <h3 class="text-info">@Html.DisplayFor(model => model.Titulo_entrada)</h3>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="form-group">
+            <div class="col-xs-12 col-md-8">
+                <h4>
+                    @Html.ActionLink(Model.Nombre_persona + " (ver todas las entradas)",
+                    "VerEntradas", "Entradas", new { tipo_busqueda = "ID PERSONA", texto_busqueda = Model.Id_persona },
+                    new { @class = "label label-info label-lg" })
+                </h4>
+            </div>
+
+            <div class="col-xs-12 col-md-4">
+                <div class="pull-right">
+                    <label>Publicación @Html.DisplayFor(model => model.Fecha_publicacion)</label>
+                </div>
+            </div>
+
+        </div>
+        <br />
+        <hr />
+
+        <div class="form-group">
+            <div class="col-form-label">
+                <label>@Html.DisplayFor(model => model.Descripcion_entrada)</label>
+            </div>
+        </div>
+
+        <hr />
+
+        using (Html.BeginForm("InsertarComentario", "Comentario", FormMethod.Post))
+        {
+            <div class="form-group">
+                <div class="text-left">
+                    <h4 class="text-info">Comentarios</h4>
+                </div>
+            </div>
+            @Html.Hidden("Id_entrada", Model.Id_entrada)
+            @Html.Hidden("Id_persona", Model.Id_persona)
+            <div class="col-md-6">
+                <label class="sr-only">Escribe un comentario:</label>
+                <textarea class="form-control" rows="5" id="txtComentario" name="txtComentario"
+                          placeholder="Escribe un comentario 500 carácteres máx."></textarea>
+            </div>
+
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-floppy-saved"></span> Enviar comentario
+                </button>
+            </div>
+        }
+
+        <div class="col-md-12">
+            <hr />
+        </div>
+
+        if (Model.Comentarios != null)
+        {
+            foreach (var comment in Model.Comentarios)
+            {
+                <div class="row">
+                    <div class="col-md-6">
+                        <section>
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    @Html.Label(comment.Persona.Nombre_persona, comment.Persona.Nombre_persona + " - " + comment.Fecha + " - " + comment.Hora)
+                                </div>
+                                <div class="panel-body">@Html.Label(comment.Descripcion)</div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-md-12">
+                <hr />
+                <h4 class="text-info">Sin comentarios</h4>
+            </div>
+        }
+    }
+</div>
+
