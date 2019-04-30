@@ -30,13 +30,13 @@
                     <li>@Html.ActionLink("Quienes somos", "QuienesSomos", "Persona")</li>
                     <li>@Html.ActionLink("Contacto", "VerNuevaSolicitud", "Solicitud")</li>
                 </ul>
-                <form action="" class="navbar-form navbar-right" role="search">
+                @*<form action="" class="navbar-form navbar-right" role="search">
                     <div class="form-group input-group">
                         <label class="sr-only" for="lblBuscar">Buscar</label>
                         <input type="text" class="form-control" placeholder="Buscar artículos">
                         <span class="input-group-btn"><button type="submit" class="btn btn-primary">Buscar</button></span>
                     </div>
-                </form>
+                </form>*@
                 <ul class="nav navbar-nav navbar-right">
                     @if (Session["NombreUsuario"] != null)
                     {
